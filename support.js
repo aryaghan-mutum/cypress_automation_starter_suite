@@ -1,7 +1,5 @@
 /// <reference types="cypress" />
 
-const { html } = require('common-tags')
-
 //
 // implementation of the custom command "cy.api"
 // https://github.com/bahmutov/cy-api

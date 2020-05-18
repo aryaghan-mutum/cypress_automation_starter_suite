@@ -18,7 +18,7 @@ export class BaseTestAssist {
     }
 
     validateValueIsNullOrUndefined = (value) => {
-        softExpect(util.isNullOrUndefined()).to.eq(false, `Value is ${value}`)
+        softExpect(util.isNullOrUndefined()).to.eq(true, `Value is ${value}`)
     }
 
 }
