@@ -7,7 +7,7 @@ class ServiceRequest extends BaseRequest {
      * Get HTTP header for requests or for responses
      * @returns {{Accept: string, "Content-Type": string}}
      */
-    getHeaders = () => {
+    public getHeaders = () => {
         return {
             'Content-Type': 'application/json',
             'Accept': 'application/json'
@@ -20,11 +20,11 @@ class ServiceRequest extends BaseRequest {
      * @param variable
      * @returns {{variables: *, query: *}}
      */
-    getRequestBody = (query, variable) => {
+    public getRequestBody = (query, variable) => {
         return {query: query, variables: variable}
     }
 
-    postRequest = (serviceUrl, requestBody, failStatus) => {
+    public postRequest = (serviceUrl, requestBody, failStatus) => {
         return {
             method: httpMethod.POST_METHOD,
             url: serviceUrl,
@@ -34,16 +34,6 @@ class ServiceRequest extends BaseRequest {
             response: []
         }
     }
-
-    /**
-     * Make an HTTP request.
-     * @param request
-     * @returns {Cypress.Chainable<Cypress.Response>}
-     */
-    makeRequest = (request) => {
-        cy.request(request)
-    }
-
 }
 
 export default new ServiceRequest()

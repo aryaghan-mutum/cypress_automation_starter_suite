@@ -1,10 +1,5 @@
 /// <reference types="cypress" />
 
-//
-// implementation of the custom command "cy.api"
-// https://github.com/bahmutov/cy-api
-//
-
 // shortcuts to a few Lodash methods
 const { get, filter, map, uniq } = Cypress._
 

@@ -6,28 +6,29 @@ import {asSequence} from 'sequency'
 
 describe('Test Values in Employee Service', () => {
     specify('test "id" value is null or undefined', () => {
-        serviceRequest.makeRequest(url.EMPLOYEE_URL).then(response => {
+        cy.request(url.EMPLOYEE_URL).then(response => {
+            debugger
             employeeServiceTestAssist.validateStatusISuccessful(response)
             asSequence(Cypress.$(response.body.data)).forEach(data => employeeServiceTestAssist.validateValueIsNullOrUndefined(data.id))
         })
     })
 
     specify('test "employee_name" value is null or undefined', () => {
-        serviceRequest.makeRequest(url.EMPLOYEE_URL).then(response => {
+        cy.request(url.EMPLOYEE_URL).then(response => {
             employeeServiceTestAssist.validateStatusISuccessful(response)
             asSequence(Cypress.$(response.body.data)).forEach(data => employeeServiceTestAssist.validateValueIsNullOrUndefined(data.employee_name))
         })
     })
 
     specify('test "employee_age" value is null or undefined', () => {
-        serviceRequest.makeRequest(url.EMPLOYEE_URL).then(response => {
+        cy.request(url.EMPLOYEE_URL).then(response => {
             employeeServiceTestAssist.validateStatusISuccessful(response)
             asSequence(Cypress.$(response.body.data)).forEach(data => employeeServiceTestAssist.validateValueIsNullOrUndefined(data.employee_age))
         })
     })
 
     specify('test "employee_salary" value is null or undefined', () => {
-        serviceRequest.makeRequest(url.EMPLOYEE_URL).then(response => {
+        cy.request(url.EMPLOYEE_URL).then(response => {
             employeeServiceTestAssist.validateStatusISuccessful(response)
             asSequence(Cypress.$(response.body.data)).forEach(data => employeeServiceTestAssist.validateValueIsNullOrUndefined(data.employee_salary))
         })
