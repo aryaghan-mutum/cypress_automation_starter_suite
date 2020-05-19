@@ -1,6 +1,5 @@
 import {BaseRequest} from '../base_request'
-
-const httpMethod = require('../../config/constants')
+import httpMethod from '../../config/serviceconfig/http_methods_config'
 
 class ServiceRequest extends BaseRequest {
 

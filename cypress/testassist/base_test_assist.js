@@ -1,5 +1,5 @@
-const httpStatus = require('../config/constants')
 import util from '../utils/util'
+import httpStatus from '../config/serviceconfig/http_status_config'
 
 const {softExpect} = chai
 
