@@ -3,20 +3,23 @@ import url from '../../config/uiconfig/ui_url_config'
 
 class LocalhostPage extends BasePage {
 
-    nameTextBox = '#name'
-    emailTextBox = '#email'
-    messageTextBox = '#message'
-    sendBtnText = 'SEND'
+    private readonly nameTextBox: string = '#name'
+    private readonly emailTextBox: string = '#email'
+    private readonly messageTextBox: string = '#message'
+    private readonly sendBtnText: string = 'SEND'
 
     constructor() {
         super()
     }
 
     /** Visit localhost */
-    openLocalhost = () => cy.visit(url.LOCALHOST_URL)
+    public openLocalhost = () => {
+        cy.visit(url.LOCALHOST_URL)
+        return this
+    }
 
     /** Set Name */
-    setName = (name) => {
+    public setName = (name: string) => {
         cy.get(this.nameTextBox)
             .should('be.visible')
             .type(name).type('{enter}')
@@ -25,13 +28,13 @@ class LocalhostPage extends BasePage {
     }
 
     /** Get Name */
-    getName = () => {
+    public getName = (): string => {
         const name = Cypress.$(this.nameTextBox).text()
         return name
     }
 
     /** Set Email */
-    setEmail = (email) => {
+    public setEmail = (email: string) => {
         cy.get(this.emailTextBox)
             .should('be.visible')
             .type(email).type('{enter}')
@@ -40,7 +43,7 @@ class LocalhostPage extends BasePage {
     }
 
     /** Set Message */
-    setMessage = (message) => {
+    public setMessage = (message: string) => {
         cy.get(this.messageTextBox)
             .should('be.visible')
             .type(message).type('{enter}')
@@ -48,7 +51,7 @@ class LocalhostPage extends BasePage {
     }
 
     /** Click Send */
-    clickSend = () => {
+    public clickSend = () => {
         cy.contains(this.sendBtnText).should('be.visible').click()
         return this
     }

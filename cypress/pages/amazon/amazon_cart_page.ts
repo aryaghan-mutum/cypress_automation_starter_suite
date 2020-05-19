@@ -2,28 +2,27 @@ import {BasePage} from '../base_page'
 
 class AmazonCartPage extends BasePage {
 
-    cartBtn = '#nav-cart-count'
-    proceedToCheckoutBtn = '.a-button-input'
+    private readonly cartBtn: string = '#nav-cart-count'
+    private readonly proceedToCheckoutBtn: string = '.a-button-input'
 
     constructor() {
         super()
     }
 
     /** Click Amazon Cart */
-    clickCart = () => {
+    public clickCart = () => {
         cy.get(this.cartBtn).should('be.visible').click()
         return this
     }
 
     /** Get total product count on cart */
-    get totalProductCountInCart() {
+    public get totalProductCountInCart(): Cypress.Chainable<any> {
         let val = cy.get(this.cartBtn).should('be.visible').invoke('val')
-        console.log(val)
         return val
     }
 
     /** Click proceed to checkout button */
-    proceedToCheckout = () => {
+    public proceedToCheckout = () => {
         cy.get(this.proceedToCheckoutBtn).should('be.visible').click()
         return this
     }

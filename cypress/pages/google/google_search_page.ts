@@ -3,22 +3,25 @@ import url from '../../config/uiconfig/ui_url_config'
 
 class GoogleSearchPage extends BasePage {
 
-    googleSearchBox = '.gLFyf'
+    private readonly googleSearchBox: string = '.gLFyf'
 
     constructor() {
         super()
     }
 
     /** Visit Google site */
-    openGoogleUrl = () => cy.visit(url.GOOGLE_URL)
+    public openGoogleUrl = () => {
+        cy.visit(url.GOOGLE_URL)
+        return this
+    }
 
     /** Search in Google */
-    googleSearch = (message) => {
-        debugger
+    public googleSearch = (message: string) => {
         cy.get(this.googleSearchBox)
             .should('be.visible')
             .type(message).type('{enter}')
             .should("have.value", message)
+        return this
     }
 }
 

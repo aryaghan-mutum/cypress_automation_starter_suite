@@ -3,19 +3,22 @@ import url from '../../config/uiconfig/ui_url_config'
 
 class FacebookLoginPage extends BasePage {
 
-    usernameTextBox = '#email'
-    passwordTextBox = '#pass'
-    signInTextBtn = 'Log In'
+    private readonly usernameTextBox: string = '#email'
+    private readonly passwordTextBox: string = '#pass'
+    private readonly signInTextBtn: string = 'Log In'
 
     constructor() {
         super()
     }
 
     /** Visit Facebook site */
-    openFacebookUrl = () => cy.visit(url.FACEBOOK_URL)
+    public openFacebookUrl = () => {
+        cy.visit(url.FACEBOOK_URL)
+        return this
+    }
 
     /** Set Facebook username */
-    setUsername = (username) => {
+    public setUsername = (username: string) => {
         cy.get(this.usernameTextBox)
             .should('be.visible')
             .type(username)
@@ -24,7 +27,7 @@ class FacebookLoginPage extends BasePage {
     }
 
     /** Set Facebook password */
-    setPassword = (password) => {
+    public setPassword = (password: string) => {
         cy.get(this.passwordTextBox)
             .should('be.visible')
             .type(password)
@@ -33,13 +36,13 @@ class FacebookLoginPage extends BasePage {
     }
 
     /** Click Sign in button */
-    signIn = () => {
+    public signIn = () => {
         cy.contains(this.signInTextBtn).should('be.visible').click()
         return this
     }
 
     /** Log into Facebook with username and password */
-    facebookSignIn = (username, password) => {
+    public facebookSignIn = (username: string, password: string) => {
         this.setUsername(username).setPassword(password).signIn()
         return this
     }

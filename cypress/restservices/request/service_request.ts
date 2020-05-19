@@ -20,11 +20,11 @@ class ServiceRequest extends BaseRequest {
      * @param variable
      * @returns {{variables: *, query: *}}
      */
-    public getRequestBody = (query, variable) => {
+    public getRequestBody = (query: string, variable: string) => {
         return {query: query, variables: variable}
     }
 
-    public postRequest = (serviceUrl, requestBody, failStatus) => {
+    public postRequest = (serviceUrl: string, requestBody: string, failStatus: boolean) => {
         return {
             method: httpMethod.POST_METHOD,
             url: serviceUrl,

@@ -4,28 +4,27 @@ import url from '../../config/uiconfig/ui_url_config'
 
 class AmazonHomePage extends BasePage {
 
-   amazonSearchBox = '#twotabsearchtextbox'
-    searchBtn = '.nav-search-submit > .nav-input'
-    productName = util.format('//span[text()="%s"]')
+    private readonly amazonSearchBox: string = '#twotabsearchtextbox'
+    private readonly searchBtn: string  = '.nav-search-submit > .nav-input'
+    private readonly productName: string  = util.format('//span[text()="%s"]')
 
-    paperbackText  = 'Paperback'
-    hardcoverText  = 'Hardcover'
-    potherSellersText  = 'Other Sellers'
- addToCartBtn  = '#add-to-cart-button'
+    private readonly paperbackText: string  = 'Paperback'
+    private readonly hardcoverText: string  = 'Hardcover'
+    private readonly otherSellersText: string  = 'Other Sellers'
+    private readonly addToCartBtn: string  = '#add-to-cart-button'
 
     constructor() {
         super()
     }
 
     /** Visit the Amazon site */
-     openAmazonUrl = () => {
-         cy.visit(url.AMAZON_URL)
-         return this
-     }
+    public openAmazonUrl = () => {
+        cy.visit(url.AMAZON_URL)
+        return this
+    }
 
     /** Search Product in a search box */
-     searchProduct = (product) => {
-
+    public searchProduct = (product: string) => {
         cy.get(this.amazonSearchBox)
             .should('be.visible')
             .type(product)
@@ -35,31 +34,31 @@ class AmazonHomePage extends BasePage {
     }
 
     /** Select Product */
-     selectProduct = (product) => {
+    public selectProduct = (product: string) => {
         cy.xpath(util.format(this.productName, product)).click()
         return this
     }
 
     /** Click Paper back book type */
-     selectPaperbackBookType = () => {
+    public selectPaperbackBookType = () => {
         cy.contains(this.paperbackText).should('be.visible').click()
         return this
     }
 
     /** Click hard back book type */
-     selectHardcoverBookType = () => {
+    public selectHardcoverBookType = () => {
         cy.contains(this.hardcoverText).should('be.visible').click()
         return this
     }
 
     /** Click other book type */
-     selectOtherSellersBookType = () => {
+    public selectOtherSellersBookType = () => {
         cy.contains(this.otherSellersText).should('be.visible').click()
         return this
     }
 
     /** Click Add to Cart button */
-     addToCart = () => {
+    public addToCart = () => {
         cy.get(this.addToCartBtn).should('be.visible').click()
         return this
     }
