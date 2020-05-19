@@ -40,7 +40,9 @@ class ServiceRequest extends BaseRequest {
      * @param request
      * @returns {Cypress.Chainable<Cypress.Response>}
      */
-    makeRequest = (request) => cy.request(request)
+    makeRequest = (request) => {
+        cy.request(request)
+    }
 
 }
 
