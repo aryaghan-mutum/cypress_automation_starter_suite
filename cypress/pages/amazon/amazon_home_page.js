@@ -18,7 +18,10 @@ class AmazonHomePage extends BasePage {
     }
 
     /** Visit the Amazon site */
-     openAmazonUrl = () => cy.visit(url.AMAZON_URL)
+     openAmazonUrl = () => {
+         cy.visit(url.AMAZON_URL)
+         return this
+     }
 
     /** Search Product in a search box */
      searchProduct = (product) => {

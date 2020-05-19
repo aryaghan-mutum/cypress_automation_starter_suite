@@ -7,7 +7,6 @@ describe('Test Values are null or undefined & test Types in Employee Service', (
 
     specify('test "id" value is null or undefined and test its type', () => {
         cy.request(url.EMPLOYEE_URL).then(response => {
-            debugger
             employeeServiceTestAssist.validateStatusISuccessful(response)
             asSequence(Cypress.$(response.body.data)).forEach(data => {
                 employeeServiceTestAssist.validateValueIsNullOrUndefined(data.id)

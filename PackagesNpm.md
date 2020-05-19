@@ -10,7 +10,7 @@
 | `npm install --save-dev @cypress/webpack-preprocessor`                                 |                                         |
 | `npm install --save-dev @cypress/webpack-preprocessor`                                 |                                         |
 | `npm install -g typescript`                                 |                                         |
-
+| ` npm install --save-dev @cypress/webpack-preprocessor`  |                  |  |
 
 
 
