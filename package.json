@@ -22,6 +22,7 @@
     "cypress-cucumber-preprocessor": "^2.3.1",
     "faker": "^4.1.0",
     "js-logger": "^1.6.0",
+    "plagiarism-checker": "^1.2.1",
     "sequency": "^0.19.2",
     "soft-assert": "^0.2.0"
   },
