@@ -1,6 +1,5 @@
-import {BasePage} from '../BasePage'
-
-const url = require('../../config/url_config')
+import {BasePage} from '../base_page'
+import url from '../../config/uiconfig/ui_url_config'
 
 class GoogleSearchPage extends BasePage {
 

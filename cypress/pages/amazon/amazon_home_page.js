@@ -1,29 +1,27 @@
-import {BasePage} from '../BasePage'
+import {BasePage} from '../base_page'
 import * as util from 'util'
-
-const url = require('../../config/url_config')
-
+import url from '../../config/uiconfig/ui_url_config'
 
 class AmazonHomePage extends BasePage {
 
-    amazonSearchBox = '#twotabsearchtextbox'
+   amazonSearchBox = '#twotabsearchtextbox'
     searchBtn = '.nav-search-submit > .nav-input'
     productName = util.format('//span[text()="%s"]')
 
-    paperbackText = 'Paperback'
-    hardcoverText = 'Hardcover'
-    potherSellersText = 'Other Sellers'
-    addToCartBtn = '#add-to-cart-button'
+    paperbackText  = 'Paperback'
+    hardcoverText  = 'Hardcover'
+    potherSellersText  = 'Other Sellers'
+ addToCartBtn  = '#add-to-cart-button'
 
     constructor() {
         super()
     }
 
     /** Visit the Amazon site */
-    openAmazonUrl = () => cy.visit(url.AMAZON_URL)
+     openAmazonUrl = () => cy.visit(url.AMAZON_URL)
 
     /** Search Product in a search box */
-    searchProduct = (product) => {
+     searchProduct = (product) => {
 
         cy.get(this.amazonSearchBox)
             .should('be.visible')
@@ -34,31 +32,31 @@ class AmazonHomePage extends BasePage {
     }
 
     /** Select Product */
-    selectProduct = (product) => {
+     selectProduct = (product) => {
         cy.xpath(util.format(this.productName, product)).click()
         return this
     }
 
     /** Click Paper back book type */
-    selectPaperbackBookType = () => {
+     selectPaperbackBookType = () => {
         cy.contains(this.paperbackText).should('be.visible').click()
         return this
     }
 
     /** Click hard back book type */
-    selectHardcoverBookType = () => {
+     selectHardcoverBookType = () => {
         cy.contains(this.hardcoverText).should('be.visible').click()
         return this
     }
 
     /** Click other book type */
-    selectOtherSellersBookType = () => {
+     selectOtherSellersBookType = () => {
         cy.contains(this.otherSellersText).should('be.visible').click()
         return this
     }
 
     /** Click Add to Cart button */
-    addToCart = () => {
+     addToCart = () => {
         cy.get(this.addToCartBtn).should('be.visible').click()
         return this
     }

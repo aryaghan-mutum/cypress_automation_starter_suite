@@ -10,12 +10,12 @@ describe('Test Values in Employee Service', () => {
     })
 
     it('Search a product ', () => {
-        amazonHomePage.openU(product)
+        amazonHomePage.open('Introduction to Algorithms')
     })
 
     it('Select the first product  ', () => {
         amazonHomePage
-            .selectProduct(product)
+            .selectProduct('Introduction to Algorithms')
             .selectPaperbackBookType()
             .addToCart()
 

@@ -1,8 +1,9 @@
 import serviceRequest from '../../../restservices/request/service_request'
 import employeeServiceTestAssist from '../../../testassist/employee_service_test_assist'
+import url from '../../../config/serviceconfig/service_url_config'
+
 import {asSequence} from 'sequency'
 
-const url = require('../../../config/url_config')
 
 describe('Test Values in Employee Service', () => {
     specify('test "id" value is null or undefined', () => {

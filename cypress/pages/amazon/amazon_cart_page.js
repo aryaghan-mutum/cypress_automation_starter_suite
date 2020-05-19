@@ -1,4 +1,4 @@
-import {BasePage} from '../BasePage'
+import {BasePage} from '../base_page'
 
 class AmazonCartPage extends BasePage {
 
