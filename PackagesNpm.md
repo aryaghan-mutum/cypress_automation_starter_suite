@@ -23,5 +23,6 @@ npm install --save-dev cypress-cucumber-preprocessor
 npm i plagiarism-checker
 npm i soft-assert
 npm i js-logger
-```shell
+npm i eslint-plugin-jsdoc
+```
 

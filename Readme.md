@@ -28,8 +28,6 @@
 ##### Install Cypress 
 - `npm install cypress` or `npm install cypress --save-dev`
 
-Downloads Cypress desktop app and CLI
-
 ##### Launch Test Runner from Cypress 
 - `./node_modules/.bin/cypress open` or `npx cypress open` for mac 
 - `node_modules\bin\cypress open` for windows

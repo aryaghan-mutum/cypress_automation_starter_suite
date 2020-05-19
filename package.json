@@ -20,6 +20,7 @@
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
     "cypress-cucumber-preprocessor": "^2.3.1",
+    "eslint-plugin-jsdoc": "^25.4.2",
     "faker": "^4.1.0",
     "js-logger": "^1.6.0",
     "plagiarism-checker": "^1.2.1",
