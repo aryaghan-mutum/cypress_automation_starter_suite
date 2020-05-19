@@ -12,6 +12,12 @@ export class BaseTestAssist {
         expect(response.status).to.eq(httpStatus.STATUS_200, `Actual Status: ${response.status}. Expected Status: ${httpStatus.STATUS_200}`)
     }
 
+    validateTypeIsNumber = (value) => {
+        let idType = typeof (value) === "number"
+        softExpect(idType).to.eq(true, `Value: ${value} is of type: ${typeof value}`)
+    }
+
+
     validateTypeIsString = (value) => {
         let idType = typeof (value) === "string"
         softExpect(idType).to.eq(true, `Value: ${value} is of type: ${typeof value}`)
