@@ -9,8 +9,8 @@ class AmazonCartPage extends BasePage {
         super()
     }
 
-    /** Click Amazon Cart */
-    public clickCart = () => {
+   
+    public clickCart = (str: string) => {
         cy.get(this.cartBtn).should('be.visible').click()
         return this
     }
