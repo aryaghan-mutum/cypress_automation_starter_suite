@@ -4,13 +4,15 @@
   "description": "An automation suite to test UI and Rest Micro Services",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "cypress run",
+    "cy:open": "cypress open",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/aryaghan-mutum/cypress_automation_starter_suite.git"
   },
-  "author": "anurag muthhyam",
+  "author": "Anurag Muthyam <anu.drumcoder@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/aryaghan-mutum/cypress_automation_starter_suite/issues"

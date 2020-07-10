@@ -9,7 +9,7 @@
 - Download IDE: VS Code, IntelliJ, Emacs or VIM
 
 ###### Generate package.json
-```shell
+```properties
 npm init to customize the package.json
 npm init -y creates the package.json automatically
 ```
