@@ -2,6 +2,8 @@
 
 ##### Important Packages:
 ```shell 
+
+Update npm version: sudo npm install npm --global
 npm install --save-dev cypress
 npm install --save-dev webpack typescript ts-loader
 npm install --save-dev @cypress/webpack-preprocessor

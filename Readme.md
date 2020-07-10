@@ -1,15 +1,18 @@
 #### Cypress Automation Starter Suite
 
 ##### Download `node.js` and `npm`
-- Download the `node.js` `.pkg` installer from: `https://nodejs.org/en/download/`
-- Verify version: `node --version`
-- Run `node.js` installer
-- Verify version: `node -v` or `node --version`
-- Update npm version: `sudo npm install npm --global`
+- Download `node.js` `.pkg` installer from: `https://nodejs.org/en/download/` & Verify version: `node -v`
+- Generate Cypress directory
+- Generate `package.json`
+- Install Cypress
+- Install TypeScript
+- Download IDE: VS Code, IntelliJ, Emacs or VIM
 
 ##### Generate package.json
-- `npm init` to customize the package.json
-- `npm init -y` creates the package.json automatically
+```shell
+npm init to customize the package.json
+npm init -y creates the package.json automatically
+```
 
 ```json
 {
@@ -20,34 +23,65 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "some author",
+  "author": "who am i?",
   "license": "ISC"
 }
 ```
 
 ##### Install Cypress 
-- `npm install cypress` or `npm install cypress --save-dev`
+```shell
+npm install cypress or npm install cypress --save-dev
+```
+
+##### TypeScript Installation
+```shell
+`npm install -g typescript` check version: `tsc -v`
+npm uninstall -g typescript
+```
+
+##### Development 
+```shell
+npm install
+npm run buil
+```
 
 ##### Launch Test Runner from Cypress 
-- `./node_modules/.bin/cypress open` or `npx cypress open` for mac 
-- `node_modules\bin\cypress open` for windows
+```shell
+npx cypress open
+```
 
 ##### Run Tests 
-Run using Tags:
-- `npx cypress-tags run -e TAGS='@smoke'`
+Run all tests in the project:
+```shell
+`npx cypress run` or `npm test`
+```
 
-Run all tests:
-- `./node_modules/.bin/cypress run`
-- `./node_modules/.bin/cypress run --headed`
+Run tests on different envs (generates test results in CLI!): 
+```shell
+npx cypress run --env configFile=dev
+npx cypress run --env configFile=stage
+npx cypress run --env configFile=qa
+```
 
-Run all spec files in the project
-- `npx cypress run`
+Run tests on Test Runner for different envs (mostly used for testing):
+```shell
+cypress open --env configFile=dev
+cypress open --env configFile=stage
+cypress open --env configFile=qa
+```
 
-Run specific tests: 
-- `./node_modules/.bin/cypress run -spec cypress/integration/examples/regression/sample_test.spec.js`
+Run specific tests:
+```shell
+cypress run --spec cypress/integration/ui/regression/someDir/some_file.spec.js
+cypress run --spec cypress/integration/microservices/regression/someDir/some_file.spec.js
+```
 
 Run tests on a specific browser:
 - `./node_modules/.bin/cypress run --browser chrome`
+
+Run using Tags:
+- `npx cypress-tags run -e TAGS='@smoke'`
+
 
 ##### Cypress Project Structure
 - `features` - Used to hold external pieces of static data that is used in tests

@@ -17,12 +17,13 @@
   },
   "homepage": "https://github.com/aryaghan-mutum/cypress_automation_starter_suite#readme",
   "dependencies": {
-    "chai": "^4.2.0",
+    "@types/node": "^14.0.22",
+    "algory": "^1.5.4",
     "cypress-cucumber-preprocessor": "^2.3.1",
     "eslint-plugin-jsdoc": "^25.4.2",
     "faker": "^4.1.0",
     "js-logger": "^1.6.0",
-    "plagiarism-checker": "^1.2.1",
+    "ramda": "^0.27.0",
     "sequency": "^0.19.2",
     "soft-assert": "^0.2.0"
   },
@@ -30,9 +31,10 @@
     "@cypress/webpack-preprocessor": "^5.4.0",
     "@types/mocha": "^7.0.2",
     "cypress": "^4.5.0",
-    "cypress-xpath": "^1.4.0",
-    "ts-loader": "^7.0.4",
-    "ts-node": "^8.10.1",
+    "cypress-xpath": "^1.6.0",
+    "ts-loader": "^8.0.0",
+    "ts-node": "^8.10.2",
+    "typedoc": "^0.17.8",
     "typescript": "^3.9.2",
     "webpack": "^4.43.0"
   }
