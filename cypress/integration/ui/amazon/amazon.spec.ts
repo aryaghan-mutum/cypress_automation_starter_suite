@@ -12,8 +12,7 @@ describe('Amazon Test', () => {
     it('should search a product ', () => {
         amazonHomePage.openUrl(url.AMAZON_URL)
         cy.contains('amazon').should('be.visible')
-        amazonHomePage.searchProduct(bookName)
-            .selectProduct(bookName)
+        amazonHomePage.searchProduct(bookName).selectProduct(bookName)
             .paperbackBookType.should('be.visible').click()
 
         amazonHomePage.addtoCartBtn.should('be.visible').click()

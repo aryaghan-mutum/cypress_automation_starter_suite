@@ -1,51 +1,49 @@
-import {BasePage} from '../base_page'
+import { BasePage } from '../base_page'
 import url from '../../config/uiconfig/ui_url_config'
 
+/**
+ * Page object comprises of locators for web elements of "Facebook Login" page and methods that manipulate them
+ */
 class FacebookLoginPage extends BasePage {
 
-    private readonly usernameTextBox: string = '#email'
-    private readonly passwordTextBox: string = '#pass'
-    private readonly signInTextBtn: string = 'Log In'
+    /** The id is associated with the "username" text box */
+    private readonly usernameTextBoxId = '#email'
 
+    /** The id is associated with the "password" text box */
+    private readonly passwordTextBoxId = '#pass'
+
+    /** The text is associated with the "login" button */
+    private readonly signInTextBtnText = 'Log In'
+
+    /** Instantiates a new Facebook Login page object */
     constructor() {
         super()
     }
 
-    /** Visit Facebook site */
-    public openFacebookUrl = () => {
-        cy.visit(url.FACEBOOK_URL)
-        return this
+    /**
+     * @remarks - Get Facebook username text box element locator
+     * @returns A chainable element locator for Facebook username text box
+     */
+    get username(): Cypress.Chainable<JQuery> {
+        return cy.get(this.usernameTextBoxId)
     }
 
-    /** Set Facebook username */
-    public setUsername = (username: string) => {
-        cy.get(this.usernameTextBox)
-            .should('be.visible')
-            .type(username)
-            .should("have.value", username)
-        return this
+    /**
+     * @remarks - Get Facebook password text box element locator
+     * @returns A chainable element locator for Facebook password text box
+     */
+    get password(): Cypress.Chainable<JQuery> {
+        return cy.get(this.passwordTextBoxId)
     }
 
-    /** Set Facebook password */
-    public setPassword = (password: string) => {
-        cy.get(this.passwordTextBox)
-            .should('be.visible')
-            .type(password)
-            .should("have.value", password)
-        return this
+    /**
+     * @remarks - Get Login button element locator
+     * @returns A chainable element locator for Facebook username text box
+     */
+    get signin(): Cypress.Chainable {
+        return cy.contains(this.signInTextBtnText)
     }
 
-    /** Click Sign in button */
-    public signIn = () => {
-        cy.contains(this.signInTextBtn).should('be.visible').click()
-        return this
-    }
-
-    /** Log into Facebook with username and password */
-    public facebookSignIn = (username: string, password: string) => {
-        this.setUsername(username).setPassword(password).signIn()
-        return this
-    }
 }
 
 export default new FacebookLoginPage()
