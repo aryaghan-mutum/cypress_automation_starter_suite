@@ -1,19 +1,19 @@
 [
     {
         "employee": {
-            "id": "1",
+            "employeeIdInfo": "1",
             "employeeNameInfo": "Tiger Nixon",
             "employeeSalaryInfo": "320800",
-            "employeeAgeInfo": "61",
+            "employeeAgeInfo": 61,
             "profileImageInfo": ""
         }
     },
     {
         "employee": {
-            "id": "2",
+            "employeeIdInfo": "2",
             "employeeNameInfo": "Garrett Winters",
             "employeeSalaryInfo": "170750",
-            "employeeAgeInfo": "63",
+            "employeeAgeInfo": 63,
             "profileImageInfo": ""
         }
     }

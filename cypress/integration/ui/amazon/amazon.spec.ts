@@ -1,6 +1,7 @@
 import amazonHomePage from '../../../pages/amazon/amazon_home_page'
 import amazonCartPage from '../../../pages/amazon/amazon_cart_page'
 import url from '../../../config/uiconfig/ui_url_config'
+//import {uiUrl} from '../../../fixtures/ui/ui_config/'
 
 const faker = require('faker')
 
