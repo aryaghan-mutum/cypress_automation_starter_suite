@@ -5,6 +5,7 @@ import strUtil from '../../../../utils/StringUtils'
 describe('Google Search Test', () => {
 
     it('should search in google engine page ', () => {
+        debugger
         googleSearchPage.openUrl(uiUrl.googleUrl)
         cy.title().should("include", strUtil.capitalizeFirstLetter('google'))
         googleSearchPage.serachBy('cypress')
