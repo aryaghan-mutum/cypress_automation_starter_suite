@@ -1,5 +1,7 @@
-// adds cy.api command
+import './commands'
 import '../../support'
+require('cypress-xpath')
+
 let isSoftAssertion = false;
 let errors = [];
 

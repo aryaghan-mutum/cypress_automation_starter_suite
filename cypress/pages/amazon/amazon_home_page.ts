@@ -1,68 +1,103 @@
-import {BasePage} from '../base_page'
-import * as util from 'util'
-import url from '../../config/uiconfig/ui_url_config'
+import { BasePage } from '../base_page'
+import util from 'util'
 
+/**
+ * Page object comprises of locators for web elements of "Amazon Home" page and methods that manipulate them
+ */
 class AmazonHomePage extends BasePage {
 
-    private readonly amazonSearchBox: string = '#twotabsearchtextbox'
-    private readonly searchBtn: string  = '.nav-search-submit > .nav-input'
-    private readonly productName: string  = util.format('//span[text()="%s"]')
+    /** The id is associated with the Amazon search text box */
+    private readonly amazonSearchBoxId: string = '#twotabsearchtextbox'
 
-    private readonly paperbackText: string  = 'Paperback'
-    private readonly hardcoverText: string  = 'Hardcover'
-    private readonly otherSellersText: string  = 'Other Sellers'
-    private readonly addToCartBtn: string  = '#add-to-cart-button'
+    /** The css is associated with the Amazon Search button */
+    private readonly amazonSearchBtnCss: string = '.nav-search-submit > .nav-input'
 
+    /** The xpath is associated with the product name */
+    private readonly productName: string = util.format('//span[text()="%s"]')
+
+    /** The text is associated with the "Paperback" book type */
+    private readonly paperbackText: string = 'Paperback'
+
+    /** The text is associated with the "Hardcover" book type */
+    private readonly hardcoverText: string = 'Hardcover'
+
+    /** The text is associated with the "Other Sellers" book type */
+    private readonly otherSellersText: string = 'Other Sellers'
+
+    /** the id is associated with the "Add to Cart" button */
+    private readonly addToCartBtnId: string = '#add-to-cart-button'
+
+    /** Instantiates a new Amazon Home page object */
     constructor() {
         super()
     }
 
-    /** Visit the Amazon site */
-    public openAmazonUrl = () => {
-        cy.visit(url.AMAZON_URL)
+    /**
+     * @remarks - Get Amazon Search box element locator
+     * @returns A chainable element locator for Amazon Search text box
+     */
+    get searchBox(): Cypress.Chainable<JQuery> {
+        return cy.get(this.amazonSearchBoxId)
+    }
+
+    /**
+     * @remarks - Get Amazon Search box element locator
+     * @returns A chainable element locator for Amazon Search button
+     */
+    get searchBtn(): Cypress.Chainable<JQuery> {
+        return cy.get(this.amazonSearchBtnCss)
+    }
+
+    /**
+     * @remarks - Get "Paperback" element locator"
+     * @returns A chainable element locator for Paperback book type
+     */
+    get paperbackBookType(): Cypress.Chainable<JQuery> {
+        return cy.get(this.paperbackText)
+    }
+
+    /**
+     * @remarks - Get "Hardcover" element locator"
+     * @returns A chainable element locator for Paperback book type
+     */
+    get hardcoverkBookType(): Cypress.Chainable<JQuery> {
+        return cy.get(this.hardcoverText)
+    }
+
+    /**
+     * @remarks - Get "Other Sellers" text element locator"
+     * @returns A chainable element locator for Other Sellers text
+     */
+    get otherSellers(): Cypress.Chainable<JQuery> {
+        return cy.get(this.otherSellersText)
+    }
+
+    /**
+     * @remarks - Get "Add to Cart" button element locator"
+     * @returns A chainable element locator for Add to Cart button
+     */
+    get addtoCartBtn(): Cypress.Chainable<JQuery> {
+        return cy.get(this.addToCartBtnId)
+    }
+
+    /**
+     * @remarks - Search Product in the search box
+     * @param product - A product to search
+     */
+    searchProduct(product: string): this {
+        this.searchBox.type(product)
+            .get(this.amazonSearchBtnCss).click()
         return this
     }
 
-    /** Search Product in a search box */
-    public searchProduct = (product: string) => {
-        cy.get(this.amazonSearchBox)
-            .should('be.visible')
-            .type(product)
-            .should("have.value", product)
-            .get(this.searchBtn).should('be.visible').click()
-        return this
-    }
-
-    /** Select Product */
-    public selectProduct = (product: string) => {
+    /**
+     * @remarks - Select Product 
+     * @param product - A product to select 
+     */
+    selectProduct(product: string): this {
         cy.xpath(util.format(this.productName, product)).click()
         return this
     }
-
-    /** Click Paper back book type */
-    public selectPaperbackBookType = () => {
-        cy.contains(this.paperbackText).should('be.visible').click()
-        return this
-    }
-
-    /** Click hard back book type */
-    public selectHardcoverBookType = () => {
-        cy.contains(this.hardcoverText).should('be.visible').click()
-        return this
-    }
-
-    /** Click other book type */
-    public selectOtherSellersBookType = () => {
-        cy.contains(this.otherSellersText).should('be.visible').click()
-        return this
-    }
-
-    /** Click Add to Cart button */
-    public addToCart = () => {
-        cy.get(this.addToCartBtn).should('be.visible').click()
-        return this
-    }
-
 }
 
 export default new AmazonHomePage()
