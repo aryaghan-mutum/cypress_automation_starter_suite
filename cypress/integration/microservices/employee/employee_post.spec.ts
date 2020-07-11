@@ -1,7 +1,7 @@
 import serviceReq from '../../../restservices/service_request'
 import query from '../../../queries/employeeQuery'
-import employeeData from '../../../fixtures/microservices/testData/employee/employeeData.json'
-import { serviceUrls, httpStatus } from '../../../fixtures/microservices/service_config.json'
+const employeeData = require('../../../fixtures/microservices/testData/employee/employeeData.json')
+const { serviceUrls, httpStatus } = require('../../../fixtures/microservices/service_config.json')
 
 describe('Validate POST api status', () => {
 

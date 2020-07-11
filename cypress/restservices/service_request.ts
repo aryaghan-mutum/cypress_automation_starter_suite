@@ -1,4 +1,4 @@
-import httpMethodConfig from '../config/serviceconfig/http_methods_config'
+const {httpMethods} = require('../fixtures/microservices/service_config')
 
 /**
  * Service Request class consists of HTTP procedure definitions 
@@ -41,7 +41,7 @@ class ServiceRequest {
      */
     private readonly postRequest = (serviceUrl: string, requestBody: object, failStatus: boolean): Cypress.Chainable<Cypress.Response> => {
         const postReqObj = {
-            method: httpMethodConfig.POST_METHOD,
+            method: httpMethods.POST_METHOD,
             url: serviceUrl,
             headers: this.getHeaders(),
             body: requestBody,

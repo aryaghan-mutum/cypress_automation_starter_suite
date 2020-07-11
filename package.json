@@ -20,6 +20,7 @@
   "homepage": "https://github.com/aryaghan-mutum/cypress_automation_starter_suite#readme",
   "dependencies": {
     "@types/busboy": "^0.2.3",
+    "@types/es6-promise": "^3.3.0",
     "algory": "^1.5.4",
     "chai": "^4.2.0",
     "cypress-cucumber-preprocessor": "^2.3.1",
@@ -31,6 +32,7 @@
   },
   "devDependencies": {
     "@cypress/webpack-preprocessor": "^5.4.1",
+    "@types/chai-http": "^4.2.0",
     "@types/mocha": "^7.0.2",
     "@types/node": "^14.0.22",
     "@typescript-eslint/eslint-plugin": "^3.6.0",

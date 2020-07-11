@@ -1,6 +1,6 @@
 import serviceReq from '../../../restservices/service_request'
-import { serviceUrls, httpStatus } from '../../../fixtures/microservices/service_config.json'
-import employeeInfo from '../../../fixtures/microservices/employee/employeeInfo.json'
+const { serviceUrls, httpStatus } = require('../../../fixtures/microservices/service_config.json')
+const employeeInfo = require('../../../fixtures/microservices/employee/employeeInfo.json')
 
 describe('Validate GET response fields in Employee Service', () => {
 

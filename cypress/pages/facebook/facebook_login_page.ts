@@ -1,5 +1,4 @@
 import { BasePage } from '../base_page'
-import url from '../../config/uiconfig/ui_url_config'
 
 /**
  * Page object comprises of locators for web elements of "Facebook Login" page and methods that manipulate them

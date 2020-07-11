@@ -1,5 +1,4 @@
 import {BasePage} from '../base_page'
-import url from '../../config/uiconfig/ui_url_config'
 
 class LocalhostPage extends BasePage {
 
@@ -12,14 +11,11 @@ class LocalhostPage extends BasePage {
         super()
     }
 
-    /** Visit localhost */
-    public openLocalhost = () => {
-        cy.visit(url.LOCALHOST_URL)
-        return this
-    }
-
-    /** Set Name */
-    public setName = (name: string) => {
+    /**
+     * Set Name
+     * @param name 
+     */
+    setName = (name: string): this => {
         cy.get(this.nameTextBox)
             .should('be.visible')
             .type(name).type('{enter}')
@@ -27,14 +23,20 @@ class LocalhostPage extends BasePage {
         return this
     }
 
-    /** Get Name */
-    public getName = (): string => {
+    /** 
+     * Get Name 
+     * @returns Name
+     */
+    getName = (): string => {
         const name = Cypress.$(this.nameTextBox).text()
         return name
     }
 
-    /** Set Email */
-    public setEmail = (email: string) => {
+    /**
+     * Set Email 
+     * @param email 
+     */
+    setEmail = (email: string): this => {
         cy.get(this.emailTextBox)
             .should('be.visible')
             .type(email).type('{enter}')
@@ -42,16 +44,21 @@ class LocalhostPage extends BasePage {
         return this
     }
 
-    /** Set Message */
-    public setMessage = (message: string) => {
+   /**
+    * Set Message
+    * @param message 
+    */
+    setMessage = (message: string): this => {
         cy.get(this.messageTextBox)
             .should('be.visible')
             .type(message).type('{enter}')
         return this
     }
 
-    /** Click Send */
-    public clickSend = () => {
+    /** 
+     * Click Send 
+     */
+    clickSend = (): this => {
         cy.contains(this.sendBtnText).should('be.visible').click()
         return this
     }
