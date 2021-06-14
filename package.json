@@ -21,7 +21,7 @@
   "dependencies": {
     "@types/busboy": "^0.2.3",
     "@types/es6-promise": "^3.3.0",
-    "algory": "^1.5.4",
+    "algory": "^1.7.7",
     "chai": "^4.2.0",
     "cypress-cucumber-preprocessor": "^2.3.1",
     "faker": "^4.1.0",

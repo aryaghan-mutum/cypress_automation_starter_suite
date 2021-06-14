@@ -4,7 +4,9 @@ const {serviceUrls} = require('../../../fixtures/microservices/service_config.js
 
 const { softExpect } = chai
 
+
 describe('Validate all response fields in Employee Service', () => {
+
     specify('should test employee id type', () => {
         serviceReq.getHttp(serviceUrls.employeeGetUrl).then(response => {
             asSequence(Cypress.$(response.body.data)).forEach(data => {

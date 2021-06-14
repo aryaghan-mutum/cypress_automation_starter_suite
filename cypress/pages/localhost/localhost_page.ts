@@ -2,10 +2,10 @@ import {BasePage} from '../base_page'
 
 class LocalhostPage extends BasePage {
 
-    private readonly nameTextBox: string = '#name'
-    private readonly emailTextBox: string = '#email'
-    private readonly messageTextBox: string = '#message'
-    private readonly sendBtnText: string = 'SEND'
+    private readonly nameTextBoxId = '#name'
+    private readonly emailTextBoxId = '#email'
+    private readonly messageTextBoxId = '#message'
+    private readonly sendBtnText = 'SEND'
 
     constructor() {
         super()
@@ -16,7 +16,7 @@ class LocalhostPage extends BasePage {
      * @param name 
      */
     setName = (name: string): this => {
-        cy.get(this.nameTextBox)
+        cy.get(this.nameTextBoxId)
             .should('be.visible')
             .type(name).type('{enter}')
             .should("have.value", name)
@@ -28,7 +28,7 @@ class LocalhostPage extends BasePage {
      * @returns Name
      */
     getName = (): string => {
-        const name = Cypress.$(this.nameTextBox).text()
+        const name = Cypress.$(this.nameTextBoxId).text()
         return name
     }
 
@@ -37,7 +37,7 @@ class LocalhostPage extends BasePage {
      * @param email 
      */
     setEmail = (email: string): this => {
-        cy.get(this.emailTextBox)
+        cy.get(this.emailTextBoxId)
             .should('be.visible')
             .type(email).type('{enter}')
             .should("have.value", email)
@@ -49,7 +49,7 @@ class LocalhostPage extends BasePage {
     * @param message 
     */
     setMessage = (message: string): this => {
-        cy.get(this.messageTextBox)
+        cy.get(this.messageTextBoxId)
             .should('be.visible')
             .type(message).type('{enter}')
         return this
